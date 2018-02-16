@@ -25,20 +25,20 @@ class StatisticsList extends React.Component {
                     })}
                 </ul>
                 <div className={classes.charts}>
-                <BarChart data={[5,10,1,3,4,5,2,11]} size={[500,200]} />
-                <PieChart data={[{
-                                    value: 5,
-                                    label:  "more than 5"
-                                },
-                                {
-                                    label: "5-13",
-                                    value: 5
-                                },
-                                {
-                                    label: "14-17",
-                                    value:  17
-                                }]}/>
-                {/*<PieChart2/> */}
+                    <BarChart data={[5,10,1,3,4,5,2,11]} size={[500,200]} />
+                    <PieChart data={[{
+                                        value: 5,
+                                        label:  "more than 5"
+                                    },
+                                    {
+                                        label: "5-13",
+                                        value: 5
+                                    },
+                                    {
+                                        label: "14-17",
+                                        value:  17
+                                    }]}/>
+                    {/*<PieChart2/> */}
                 </div>
             </div>
 
