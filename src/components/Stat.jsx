@@ -5,7 +5,7 @@ class Stat extends React.Component {
         return(
             <div>
             <li>
-                {this.props.stat.value}  {this.props.stat.label}
+            {this.props.stat.value}  {this.props.stat.label}
             </li>
             </div>
         )
