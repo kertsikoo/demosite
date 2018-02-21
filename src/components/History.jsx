@@ -7,7 +7,7 @@ class History extends React.Component {
   return (
     <div>
       <HistoryList  histories= {this.props.histories}/>
-         </div>
+    </div>
   )
 }}
   export default History;

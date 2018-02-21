@@ -1,5 +1,4 @@
 import React from 'react';
-import Chat from './Chat';
 import Input from 'material-ui/Input';
 import { withStyles } from 'material-ui/styles';
 import GridList, { GridListTile } from 'material-ui/GridList';
@@ -88,10 +87,9 @@ constructor(){
                 <div className={classes.root}>
                 <GridList  className={classes.gridList} cols={3}>
                         {filteredHistories.map((chat) => {
-                            return <GridListTile > 
+                            return <GridListTile chat={chat} key={chat.id}> 
                                 <ExpansionPanel >
                                     <ExpansionPanelSummary >
-                                        <Chat chat={chat} key={chat.id}/>
                                         <div className={classes.column}>
                                             <Typography className={classes.heading}>{chat.date}</Typography>
                                         </div>

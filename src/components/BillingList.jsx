@@ -1,5 +1,5 @@
 import React from 'react';
-import Bill from './Bill';
+//import Bill from './Bill';
 import Input from 'material-ui/Input';
 import { withStyles } from 'material-ui/styles';
 import GridList, { GridListTile } from 'material-ui/GridList';
@@ -73,10 +73,9 @@ constructor(){
                 <div className={classes.root}>
                 <GridList  className={classes.gridList} cols={3} spacing={16}>
                         {filteredBills.map((bill) => {
-                            return <GridListTile> 
+                            return <GridListTile bill={bill} key={bill.id}> 
                                 <ExpansionPanel >
                                     <ExpansionPanelSummary className={classes.panelSummary}>
-                                        <Bill bill={bill} key={bill.id}/>
                                         <div className={classes.column}>
                                             <Typography className={classes.heading}>{bill.amount}</Typography>
                                         </div>

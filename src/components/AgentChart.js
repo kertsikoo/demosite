@@ -21,7 +21,7 @@ class Agents extends React.Component{
     render() {
       return (
         <div>
-        <HorizontalBar data= {data}/>
+          <HorizontalBar data= {data}/>
         </div>
       );
     }
