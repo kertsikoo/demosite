@@ -5,7 +5,7 @@ class Statistics extends React.Component{
   render(){
     return( 
     <div>
-      <StatisticsList stats={this.props.stats}/>
+ 
     </div>
   ) 
 

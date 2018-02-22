@@ -1,36 +1,30 @@
 import React from 'react';
-import {Bar} from 'react-chartjs-2';
+import {HorizontalBar} from 'react-chartjs-2';
 
 const data = {
-  labels: ['Hanna', 'Riikka', 'Lassi', 'Anni', 'Sara', 'Ilari', 'Sofia', '', ''],
+  labels: ['Customer Experience', 'Problem Solving'],
   datasets: [
     {
-      label: 'Chats per agent',
+      label: 'Ratings 1-5',
       backgroundColor: 'rgba(255,99,132,0.2)',
       borderColor: 'rgba(255,99,132,1)',
       borderWidth: 1,
       hoverBackgroundColor: 'rgba(255,99,132,0.4)',
       hoverBorderColor: 'rgba(255,99,132,1)',
-      data: [26, 19, 16, 50, 39, 69, 55, 29]
+      data: [4.6, 4.4, 1]
     }
   ]
 };
 
-
-
-class Agents extends React.Component{
+class Ratings extends React.Component{
 
     render() {
       return (
         <div>
-          <Bar data= {data}/>
+          <HorizontalBar data= {data}/>
         </div>
       );
     }
   }
   
-  export default Agents;
-
-
-
-
+  export default Ratings;

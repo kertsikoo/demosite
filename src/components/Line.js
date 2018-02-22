@@ -8,7 +8,7 @@ class AmountChart extends React.Component{
   render() {
     return (
       <div>
-        <Line data={this.props.stats}/>
+        <Line data={this.props.stats} />
       </div>
     );
   }

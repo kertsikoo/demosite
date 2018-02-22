@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
 import History from './components/History';
-import Statistics from './components/Statistics';
-import Billing from './components/Billing';
+import StatisticsList from './components/StatisticsList';
+import BillingList from './components/BillingList';
 import { withStyles } from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
 import Tabs, { Tab } from 'material-ui/Tabs';
@@ -67,6 +67,18 @@ const stats = {
   ]
 };
 
+let onlineAgents = [
+{
+  agentId: 1,
+  name: 'Agent 1',
+  image: require('./anonym.png')
+
+},
+{
+  agentId: 2,
+  name: 'Agent 2',
+  image: require('./anonym.png')
+}]
 
 
 const styles = theme => ({
@@ -116,8 +128,8 @@ class App extends React.Component {
           </Tabs>
         </AppBar>
            {value === 0 && <Route path="/history"  component={History}/>}
-           {value === 1 && <Route path="/billing" component={ () => <Billing bills={bills}/>}/>}
-           {value === 2 && <Route path="/statistics" component={ () => <Statistics stats={stats}/>}/>}
+           {value === 1 && <Route path="/billing" component={ () => <BillingList bills={bills}/>}/>}
+           {value === 2 && <Route path="/statistics" component={ () => <StatisticsList stats={stats} onlineAgents={onlineAgents} duration='12,3 minutes' missedChats='0'/>}/>}
       </div>
     )
   }
