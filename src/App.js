@@ -11,19 +11,19 @@ import PropTypes from 'prop-types';
 let bills = [{
   id: 1,
   amount: '100€',
-  type: 'Bill',
+  type: 'Invoice',
   date: 'today',
   detail: 'Detail1, I added a longer message here to test the expansion panel for bugs in this view. Is it still ok if i keep on writing longer? How about if I exceed the space provided here in between these two paper'
 },
 { id: 2,
   amount: '200€',
-  type: 'Bill',
+  type: 'Invoice',
   date:'tomorrow',
   detail: 'Detail2'
 },
 {  id: 3,
   amount: '300€',
-  type: 'Bill',
+  type: 'Invoice',
   date:'yesterday',
   detail: 'Detail3'
 },
@@ -41,7 +41,7 @@ let bills = [{
 },
 { id: 6,
   amount: '400€',
-  type: 'Bill',
+  type: 'Invoice',
   date:'never',
   detail: 'Detail4 Testdetail of a bit longer description, lorem ipsun jadajadajaa.'
 }]
