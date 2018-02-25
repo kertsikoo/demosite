@@ -93,7 +93,7 @@ constructor(){
                             <Grid item xs={8}>
                             {filteredBills.map((bill) => {
                                 return <div bill={bill} key={bill.id} className={classes.billDetail}>
-                                    <p>{bill.detail}</p>
+                                    <p elevation={4}></p>
                                 </div>
                             })}
                             </Grid>
