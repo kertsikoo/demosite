@@ -6,22 +6,30 @@ const data = {
   datasets: [
     {
       label: 'Ratings 1-5',
-      backgroundColor: 'rgba(255,99,132,0.2)',
-      borderColor: 'rgba(255,99,132,1)',
+      backgroundColor: '#6699cc',
+      borderColor: '#204060',
       borderWidth: 1,
-      hoverBackgroundColor: 'rgba(255,99,132,0.4)',
-      hoverBorderColor: 'rgba(255,99,132,1)',
+      hoverBackgroundColor: '#204060',
+      hoverBorderColor: '#204060',
       data: [4.6, 4.4, 1]
     }
   ]
 };
+
+const options={
+  legend: {
+      display: false,
+  },
+};
+
+
 
 class Ratings extends React.Component{
 
     render() {
       return (
         <div>
-          <HorizontalBar data= {data}/>
+          <HorizontalBar data= {data} options={options} width={120} height={30}/>
         </div>
       );
     }

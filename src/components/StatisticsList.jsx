@@ -8,26 +8,35 @@ import Divider from 'material-ui/Divider';
 import ProblemChart from './ProblemChart';
 import CountUp from 'react-countup';
 import Ratings from './Ratings';
+import Paper from 'material-ui/Paper';
 
 const styles = theme => ({
-    chartContainer: {
-       padding: 20
-     },
+    root: {
+        padding: 20,
+        paddingTop: 0
+      },
      charts: {
-         padding: 50,
+         padding: 30,
+     },
+     numerical: {
+        marginTop: 40,
+        textAlign: 'center'
      },
      chatTimes: {
-        marginTop: -20,
         display: "inline-block",
         fontFamily: "Helvetica",
-        fontSize: 30,
-        textAlign: "center"
+        fontSize: 20,
+        color: '#4d4d4d',
+
      },
-     rating: {
-        padding: 10,
-        width: '70%',
-        height: '70%'
-     },
+   
+     onlineAgents: {
+        display: "inline-block",
+        fontFamily: "Helvetica",
+        fontSize: 20,
+        textAlign: "center",
+        color: '#4d4d4d' 
+     }
 });
 
 
@@ -38,31 +47,30 @@ class StatisticsList extends React.Component {
 
 
         return(
-            <div>
-                <div className={classes.chartContainer}>
+            <div className={classes.root}>
+                <Paper  elevation={4}>
+                <div>
                     <div className = {classes.charts}>
                         <Grid container spacing={24}>
                             <Grid item xs={6} >    
                                 <AmountChart stats={this.props.stats}/>
                             </Grid> 
                             <Grid item xs={6} className={classes.chatTimes}>    
-                                <div>
-                                    <p>Missed chats: <br/> {this.props.missedChats}</p>
-                                    <p>The average pick up time: <br/> <CountUp start={0} end={9.62} 
-                                    duration={3} decimals={2} decimal="," />sec </p>
-                                    <p>Avg duration: <br/> {this.props.duration}</p>
+                                <div >
+                                    <Ratings />
                                 </div>
+                                <Grid container spacing={0} className={classes.numerical}>
+                                <Grid item xs={4} >Missed chats: <br/> {this.props.missedChats}</Grid>
+                                <Grid item xs={4} >  Average wait: <br/> <CountUp start={0} end={9.62} 
+                                    duration={2} decimals={2} decimal="," />sec </Grid>
+                                <Grid item xs={4} >  Average duration: <br/> {this.props.duration}</Grid>
+                                </Grid>
                             </Grid>
                         </Grid>
                     </div>
                     <div className = {classes.charts}>
                         <Grid container spacing={24}>
-                            <Grid item xs={6} >    
-                                <div className = {classes.rating}>
-                                    <Ratings />
-                                </div>
-                            </Grid>
-                            <Grid item xs={6} >    
+                            <Grid item xs={12} >    
                                 <Agents />
                             </Grid>
                         </Grid>
@@ -79,18 +87,7 @@ class StatisticsList extends React.Component {
                         </Grid>
                     </div>
                 </div>
-                <p>Agents online: </p>
-                <Grid container spacing={8} className = {classes.charts}>
-                        {this.props.onlineAgents.map((agent) => {
-                            return <Grid item xs={6}>
-                                <div agent={agent} key={agent.agentId}>
-                                            <img src={agent.image} alt='' width={50} />
-                                            {agent.name}
-                                </div>
-                            </Grid>
-                        })}
-                </Grid>
-                <Divider/>
+                </Paper>
             </div>
         )
            

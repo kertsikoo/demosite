@@ -2,13 +2,11 @@ import React from 'react';
 //import Bill from './Bill';
 import Input from 'material-ui/Input';
 import { withStyles } from 'material-ui/styles';
-import GridList, { GridListTile } from 'material-ui/GridList';
-import ExpansionPanel, {
-  ExpansionPanelSummary,
-  ExpansionPanelDetails,
-} from 'material-ui/ExpansionPanel';
 import Divider from 'material-ui/Divider';
+import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography';
+import {ExpansionPanelSummary} from 'material-ui/ExpansionPanel';
+import Grid from 'material-ui/Grid';
 
 const styles = theme => ({
    input: {
@@ -17,32 +15,36 @@ const styles = theme => ({
       justifyContent: 'center',
       padding: 20
     },
-    root: {
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'space-around',
-        overflow: 'hidden',
-        backgroundColor: theme.palette.background.paper,
-      },
-      gridList: {
+    content: {
+        marginTop: theme.spacing.unit * 3,
         padding: 20,
-        width: '100%',
-        height: '100%',
-        backgroundColor: '#f2f2f2',
       },
-      panelSummary: {
-          height: 70,
+      summary: {
+          padding: 5,
       },
-      secondaryHeading: {
-        fontSize: theme.typography.pxToRem(15),
-        color: theme.palette.text.secondary,
+      list: {
+          listStyle: 'none',
+      },
+      headline: {
+          paddingBottom: 5
       },
       heading: {
         fontSize: theme.typography.pxToRem(15),
+        flexBasis: '49%',
+        width: '50%'
+        
       },
-      column: {
-        flexBasis: '33.3%',
+      secondaryHeading: {
+        fontSize: theme.typography.pxToRem(15),
+        width: '50%'
       },
+      billDetail: {
+          padding: 20,
+          margin: 20,
+          border: '1px solid lightgrey'
+      }
+      
+
      
 });
 
@@ -70,27 +72,33 @@ constructor(){
                     <Input type="text" value={this.state.search} placeholder="Find a Bill by date"
                     onChange={this.updateSearch.bind(this)} />
                 </div>
-                <div className={classes.root}>
-                <GridList  className={classes.gridList} cols={3} spacing={16}>
-                        {filteredBills.map((bill) => {
-                            return <GridListTile bill={bill} key={bill.id}> 
-                                <ExpansionPanel >
-                                    <ExpansionPanelSummary className={classes.panelSummary}>
-                                        <div className={classes.column}>
-                                            <Typography className={classes.heading}>{bill.amount}</Typography>
-                                        </div>
-                                        <div className={classes.column}>
-                                            <Typography className={classes.secondaryHeading}>{bill.date}</Typography>
-                                        </div>
-                                    </ExpansionPanelSummary>    
-                                    <Divider />
-                                    <ExpansionPanelDetails >
-                                        <Typography>{bill.detail}</Typography>
-                                    </ExpansionPanelDetails>
-                                </ExpansionPanel>
-                            </GridListTile>
-                        })}
-                    </GridList>
+                <div className={classes.content}>
+                    <Paper >
+                        <Grid container>
+                            <Grid item xs={4} >
+                            {filteredBills.map((bill) => {
+                                return <div bill={bill} key={bill.id} className={classes.summary}> 
+                                    <ul className={classes.list}>
+                                        <li>
+                                            <ExpansionPanelSummary >
+                                                <Typography className={classes.heading}><b>Category:</b> {bill.type}</Typography>
+                                                <Typography className={classes.secondaryHeading}> <b>Due date: </b>{bill.date}</Typography>
+                                            </ExpansionPanelSummary>
+                                            <Divider />
+                                        </li>
+                                    </ul>
+                                </div>
+                            })}
+                            </Grid>
+                            <Grid item xs={8}>
+                            {filteredBills.map((bill) => {
+                                return <div bill={bill} key={bill.id} className={classes.billDetail}>
+                                    <p>{bill.detail}</p>
+                                </div>
+                            })}
+                            </Grid>
+                        </Grid>
+                    </Paper>
                 </div>
             </div>
         )

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
 import History from './components/History';
-import StatisticsList from './components/StatisticsList';
+import Statistics from './components/Statistics';
 import BillingList from './components/BillingList';
 import { withStyles } from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
@@ -11,31 +11,37 @@ import PropTypes from 'prop-types';
 let bills = [{
   id: 1,
   amount: '100€',
+  type: 'Bill',
   date: 'today',
   detail: 'Detail1, I added a longer message here to test the expansion panel for bugs in this view. Is it still ok if i keep on writing longer? How about if I exceed the space provided here in between these two paper'
 },
 { id: 2,
   amount: '200€',
+  type: 'Bill',
   date:'tomorrow',
   detail: 'Detail2'
 },
 {  id: 3,
   amount: '300€',
+  type: 'Bill',
   date:'yesterday',
   detail: 'Detail3'
 },
 { id: 4,
   amount: '400€',
+  type: 'Reminder',
   date:'never',
   detail: 'Detail4'
 },
 { id: 5,
   amount: '400€',
+  type: 'Reminder',
   date:'never',
   detail: 'Detail4'
 },
 { id: 6,
   amount: '400€',
+  type: 'Bill',
   date:'never',
   detail: 'Detail4 Testdetail of a bit longer description, lorem ipsun jadajadajaa.'
 }]
@@ -48,12 +54,12 @@ const stats = {
       fill: false,
       lineTension: 0.1,
       backgroundColor: 'rgba(75,192,192,0.4)',
-      borderColor: 'rgba(75,192,192,1)',
+      borderColor: 'grey',
       borderCapStyle: 'butt',
       borderDash: [],
       borderDashOffset: 0.0,
       borderJoinStyle: 'miter',
-      pointBorderColor: 'rgba(75,192,192,1)',
+      pointBorderColor: 'grey',
       pointBackgroundColor: '#fff',
       pointBorderWidth: 1,
       pointHoverRadius: 5,
@@ -129,7 +135,7 @@ class App extends React.Component {
         </AppBar>
            {value === 0 && <Route path="/history"  component={History}/>}
            {value === 1 && <Route path="/billing" component={ () => <BillingList bills={bills}/>}/>}
-           {value === 2 && <Route path="/statistics" component={ () => <StatisticsList stats={stats} onlineAgents={onlineAgents} duration='12,3 minutes' missedChats='0'/>}/>}
+           {value === 2 && <Route path="/statistics" component={ () => <Statistics stats={stats} onlineAgents={onlineAgents} />}/>}
       </div>
     )
   }
