@@ -128,14 +128,14 @@ class App extends React.Component {
               indicatorColor="primary"
               textColor="inherit"
               centered>
+              <Tab label="Statistics" component={Link} to="/statistics"/> 
                 <Tab label="Histories" component={Link} to="/history" />
-                <Tab label="Billing" component={Link} to="/billing"/>
-                <Tab label="Statistics" component={Link} to="/statistics"/>
+                <Tab label="Invoices" component={Link} to="/billing"/>
           </Tabs>
         </AppBar>
-           {value === 0 && <Route path="/history"  component={History}/>}
-           {value === 1 && <Route path="/billing" component={ () => <BillingList bills={bills}/>}/>}
-           {value === 2 && <Route path="/statistics" component={ () => <Statistics stats={stats} onlineAgents={onlineAgents} />}/>}
+           {value === 0 && <Route path="/statistics" component={ () => <Statistics stats={stats} onlineAgents={onlineAgents} />}/>}
+           {value === 1 && <Route path="/history"  component={History}/>}
+           {value === 2 && <Route path="/billing" component={ () => <BillingList bills={bills}/>}/>}
       </div>
     )
   }

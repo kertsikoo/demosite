@@ -47,9 +47,6 @@ const styles = theme => ({
           margin: 20,
           border: '1px solid lightgrey'
       }
-      
-
-     
 });
 
 class BillingList extends React.Component {
@@ -79,7 +76,7 @@ constructor(){
                 <div className={classes.content}>
                             {filteredBills.map((bill) => {
                                 return <ExpansionPanel bill={bill} key={bill.id} className={classes.summary}> 
-                                            <ExpansionPanelSummary >
+                                            <ExpansionPanelSummary className={classes.hover}>
                                                 <Typography className={classes.heading}><b>Category:</b> {bill.type}</Typography>
                                                 <Typography className={classes.secondaryHeading}> <b>Due date: </b>{bill.date}</Typography>
                                             </ExpansionPanelSummary>

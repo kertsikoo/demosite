@@ -4,6 +4,7 @@ import { withStyles } from 'material-ui/styles';
 import Paper from 'material-ui/Paper'
 import Grid from 'material-ui/Grid';
 import Typography from 'material-ui/Typography/Typography';
+import Button from 'material-ui/Button'
 
 const styles = theme => ({
   agents: {
@@ -21,7 +22,6 @@ const styles = theme => ({
   tabs: {
     textAlign: 'center',
     marginTop: 60,
-    height: 30,
 
   }
   });
@@ -49,7 +49,12 @@ class Statistics extends React.Component{
       </Paper>
     </div>
     <div>
-      <Typography className={classes.tabs}>vuosi, kuukausi, viimeinen vuorokausi</Typography>
+      <div className={classes.tabs}>
+        <Button href="#flat-buttons" className={classes.button}>YEAR</Button>
+        <Button href="#flat-buttons" className={classes.button}>MONTH</Button>
+        <Button href="#flat-buttons" className={classes.button}>WEEK</Button>
+        <Button href="#flat-buttons" className={classes.button}>DAY</Button>
+      </div>
       <StatisticsList stats={this.props.stats}  duration='12,3 minutes' missedChats='0'/>
     </div>
   </div>

@@ -33,7 +33,8 @@ const styles = theme => ({
    
      typography: {
         color: 'grey',
-        paddingBottom: 10
+        paddingBottom: 10,
+        paddingTop:0
       },
 });
 
@@ -73,13 +74,14 @@ class StatisticsList extends React.Component {
                     <div className = {classes.charts}>
                         <Grid container spacing={24}>
                             <Grid item xs={12} >    
-                            <Typography className={classes.typography}>CHATS BY AGENT</Typography>
+                            <Typography className={classes.typography} >CHATS BY AGENT</Typography>
                                 <Agents />
                             </Grid>
                         </Grid>
                     </div>
                     <Divider/>
                     <div className = {classes.charts}>
+                    <Typography className={classes.typography} style={{textAlign: 'center'}}>TAGS</Typography>
                         <Grid container spacing={24}>
                             <Grid item xs={6} >    
                                 <ProblemChart/> 
