@@ -10,6 +10,8 @@ import CountUp from 'react-countup';
 import Ratings from './Ratings';
 import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography/Typography';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 
 const styles = theme => ({
     root: {
@@ -41,7 +43,19 @@ const styles = theme => ({
 
 class StatisticsList extends React.Component {
 
-    
+    printDocument() {
+        const input = document.getElementById('print');
+        html2canvas(input)
+          .then((canvas) => {
+            const imgData = canvas.toDataURL('image/png');
+            const pdf = new jsPDF();
+            pdf.addImage(imgData, 'JPEG', 0, 0);
+            // pdf.output('dataurlnewwindow');
+            pdf.save("download.pdf");
+          })
+        ;
+      }
+
     render() {
 
     const { classes } = this.props;
@@ -54,8 +68,13 @@ class StatisticsList extends React.Component {
                     <div className = {classes.charts}>
                         <Grid container spacing={24}>
                             <Grid item xs={6} >    
+                            <div id="print" >
                             <Typography className={classes.typography}>NUMBER OF CHATS</Typography>
-                                <AmountChart stats={this.props.stats}/>
+                                <AmountChart  stats={this.props.stats}/>
+                            </div>
+                            <div >
+                                <button onClick={this.printDocument}>PRINT PDF</button>
+                            </div>
                             </Grid> 
                             <Grid item xs={6} className={classes.chatTimes}>    
                                 <div >
@@ -81,12 +100,13 @@ class StatisticsList extends React.Component {
                     </div>
                     <Divider/>
                     <div className = {classes.charts}>
-                    <Typography className={classes.typography} style={{textAlign: 'center'}}>TAGS</Typography>
                         <Grid container spacing={24}>
                             <Grid item xs={6} >    
+                                <Typography className={classes.typography} style={{textAlign: 'center'}}>PROBLEM</Typography>
                                 <ProblemChart/> 
                             </Grid>
                             <Grid item xs={6} >    
+                                <Typography className={classes.typography} style={{textAlign: 'center'}}>SOLUTION</Typography>
                                 <SolutionChart/> 
                             </Grid>
                         </Grid>

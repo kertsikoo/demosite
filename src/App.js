@@ -12,38 +12,38 @@ let bills = [{
   id: 1,
   amount: '100€',
   type: 'Invoice',
-  date: 'today',
-  detail: 'Detail1, I added a longer message here to test the expansion panel for bugs in this view. Is it still ok if i keep on writing longer? How about if I exceed the space provided here in between these two paper'
+  date: '2.3.2018',
+  detail: 'Detail1'
 },
 { id: 2,
   amount: '200€',
   type: 'Invoice',
-  date:'tomorrow',
+  date:'1.1.2018',
   detail: 'Detail2'
 },
 {  id: 3,
   amount: '300€',
-  type: 'Invoice',
-  date:'yesterday',
+  type: 'Reminder',
+  date:'1.1.2000',
   detail: 'Detail3'
 },
 { id: 4,
   amount: '400€',
   type: 'Reminder',
-  date:'never',
+  date:'1.2.1999',
   detail: 'Detail4'
 },
 { id: 5,
   amount: '400€',
-  type: 'Reminder',
-  date:'never',
+  type: 'Invoice',
+  date:'1.1.2021',
   detail: 'Detail4'
 },
 { id: 6,
   amount: '400€',
   type: 'Invoice',
-  date:'never',
-  detail: 'Detail4 Testdetail of a bit longer description, lorem ipsun jadajadajaa.'
+  date:'4.5.2018',
+  detail: 'Detail4'
 }]
 
 const stats = {

@@ -8,16 +8,16 @@ import Button from 'material-ui/Button'
 
 const styles = theme => ({
   agents: {
-    textAlign: 'center',
-    alignContent: 'center',
    },
    paper: {
      backgroundColor: '#f2f2f2',
       margin: 20,
       padding: 20,
+      height: 100,
    },
    typography: {
      color: 'grey',
+     paddingBottom: 15,
    },
   tabs: {
     textAlign: 'center',
@@ -35,8 +35,8 @@ class Statistics extends React.Component{
   <div>
     <div className={classes.agents}>
       <Paper className={classes.paper} elevation={1}>
+          <Typography className={classes.typography}>ONLINE AGENTS: </Typography>
           <Grid container>
-              <Typography className={classes.typography}>ONLINE AGENTS: </Typography>
                   {this.props.onlineAgents.map((agent) => {
                       return <Grid item xs={1}>
                           <div agent={agent} key={agent.agentId}>
