@@ -18,16 +18,21 @@ const data = {
 			'#d4d4aa',
 		'#888844',
 		'#ffe6cc'
-		]
-	}]
+		],
+	}],
+	
 };
+
+
 
 class SolutionChart extends React.Component{
 
+	
   render() {
+
     return (
       <div>
-      <Doughnut data= {data}/>
+      <Doughnut data={data} ref="chart" />
       </div>
     );
   }
