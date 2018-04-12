@@ -30,15 +30,15 @@ class Detail extends React.Component {
         
         return (
         <Grid container className={classes.chatList}>
-        <Grid item xs={4}>
-            <Divider style={{width: '70%'}}/>
-            <Button onClick={this.localToggle}>
-            Show conversation by {this.props.agent}
-            </Button>
-        </Grid>
-        <Grid item xs >
-          {detailComponent}
-        </Grid>
+            <Grid item xs={4}>
+                <Divider style={{width: '80%'}}/>
+                <Button onClick={this.localToggle}>
+                    Show conversation by {this.props.agent}
+                </Button>
+            </Grid>
+            <Grid item xs >
+                {detailComponent}
+            </Grid>
         </Grid>
         )
     }

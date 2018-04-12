@@ -23,7 +23,9 @@ const data = {
 	
 };
 
-
+//const legendOpts = {
+//onClick: (e, item) => alert(`Item with text ${item.text} and index ${item.index} clicked`),
+//};
 
 class SolutionChart extends React.Component{
 

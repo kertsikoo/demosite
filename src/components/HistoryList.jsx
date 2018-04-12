@@ -43,7 +43,7 @@ constructor(props){
             id:1,
             agent: 'Hanna',
             customer: 'Customer',
-            date: '16.1.2018',
+            date: '16.1.2017',
             tags: 'maintanance, answered',
             length: '7min',
             conversation: 'I need to change my repair reservation',
@@ -78,8 +78,12 @@ constructor(props){
     //}
 
     getDetail(){
-        const histories = this.state.histories;
-        return histories.map((chat, i) => {
+        let filteredHistories = this.state.histories.filter(
+            (chat) => {
+                return chat.date.indexOf(this.state.search) !== -1; 
+            }
+        );
+        return filteredHistories.map((chat, i) => {
            return <Detail isOpen={this.state.isOpen} date={chat.date} agent={chat.agent} 
            conversation={chat.conversation} length={chat.length} key={i}/>
         })
@@ -87,11 +91,7 @@ constructor(props){
    
     render() {
         const { classes } = this.props;
-        let filteredHistories = this.state.histories.filter(
-            (chat) => {
-                return chat.date.indexOf(this.state.search) !== -1; 
-            }
-        );
+    
         let detail = this.getDetail();
         return (
             <div>
@@ -105,13 +105,10 @@ constructor(props){
                         {detail}
                         </Grid>
                     </Paper>
-                    
                 </div>
             </div>
         )
     }
-
-
 }
 export default withStyles(styles)(HistoryList);
 
