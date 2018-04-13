@@ -15,7 +15,7 @@ const data = {
 		'#ffe6cc'
 		],
 		hoverBackgroundColor: [
-			'#d4d4aa',
+		'#d4d4aa',
 		'#888844',
 		'#ffe6cc'
 		],
@@ -29,12 +29,17 @@ const data = {
 
 class SolutionChart extends React.Component{
 
-	
+	showDataset(dataset, e) {
+	alert(`The section you clicked is called: '${dataset[0]._view.label}'. You get the full object definition in console.`)
+	console.log(dataset)
+
+	}
+
   render() {
 
     return (
       <div>
-      <Doughnut data={data} ref="chart" />
+      <Doughnut data={data} ref="chart" getElementAtEvent={(dataset) => this.showDataset(dataset)} />
       </div>
     );
   }
