@@ -7,6 +7,7 @@ const data = {
 		'Lead',
 		'Other'
 	],
+	links: ["https://www.google.com", "https://www.facebook.com", "https://www.iltasanomat.fi"],
 	datasets: [{
 		data: [50, 150, 100],
 		backgroundColor: [
@@ -30,9 +31,17 @@ const data = {
 class SolutionChart extends React.Component{
 
 	showDataset(dataset, e) {
-	alert(`The section you clicked is called: '${dataset[0]._view.label}'. You get the full object definition in console.`)
-	console.log(dataset)
 
+		const chartData = dataset[0]._chart.config.data;
+		const index = dataset[0]._index;
+		const label = chartData.labels[index];
+		const url = chartData.links[index];
+				
+
+	alert(`The section you clicked is called: '${label}' with index '${index}'.
+	 You get the full object definition in console. The link is : '${url}', which will be opened in a new window.`)
+	console.log(dataset)
+	window.open(url);
 	}
 
   render() {
