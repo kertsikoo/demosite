@@ -7,7 +7,7 @@ const data = {
 		'Lead',
 		'Other'
 	],
-	links: ["https://www.google.com", "https://www.facebook.com", "https://www.iltasanomat.fi"],
+	links: ["https://www.google.com", "https://www.facebook.com", "https://www.bing.fi"],
 	datasets: [{
 		data: [50, 150, 100],
 		backgroundColor: [
@@ -39,7 +39,8 @@ class SolutionChart extends React.Component{
 				
 
 	alert(`The section you clicked is called: '${label}' with index '${index}'.
-	 You get the full object definition in console. The link is : '${url}', which will be opened in a new window.`)
+	 You get the full object definition in console. The link is : '${url}',
+	 which will be opened in a new window.`)
 	console.log(dataset)
 	window.open(url);
 	}
