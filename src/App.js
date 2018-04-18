@@ -2,9 +2,8 @@ import React from 'react';
 import Main from './components/Main'
 //import Login from './components/Login'
 import Button from 'material-ui/Button'
-import { withStyles } from 'material-ui/styles';
-
-import AppBar from 'material-ui/AppBar';
+//import { withStyles } from 'material-ui/styles';
+//import AppBar from 'material-ui/AppBar';
 import TextField from 'material-ui/TextField';
 import { Paper } from 'material-ui';
 import Typography from 'material-ui/Typography';

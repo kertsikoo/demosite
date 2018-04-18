@@ -6,7 +6,6 @@ import BillingList from './BillingList';
 import { withStyles } from 'material-ui/styles';
 import AppBar from 'material-ui/AppBar';
 import Tabs, { Tab } from 'material-ui/Tabs';
-import Button from 'material-ui/Button'
 import PropTypes from 'prop-types';
 
 let bills = [{
@@ -46,6 +45,8 @@ let bills = [{
   date:'4.5.2018',
   detail: 'Detail4'
 }]
+
+
 
 const stats = {
   labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4', 'Week 5', 'Week 6', 'Week 7'],
@@ -104,40 +105,42 @@ const styles = theme => ({
 });
 
 
-class Main extends React.Component {
-  state = {
-    value: false,
-  };
 
-  handleChange = (event, value) => {
-    this.setState({ value });
+class Main extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+        selectedIndex: false
+    }
   }
+  
+
+//  handleChange = (event, value) => {
+  //  this.setState({ value });
+  //}
 
  
 
   render(){
     const { classes } = this.props;
-    const { value } = this.state;
 
-    return (
-      
- // The initial state of the value of tabs has a bug     
+    return (   
       <div className={classes.root}>
         <AppBar position="static" color="default">
-          <Tabs value={value}
-              onChange={this.handleChange}
+          <Tabs value={this.state.selectedIndex}
+              onChange={index => this.setState({ selectedIndex: index })}
               indicatorColor="primary"
               textColor="inherit"
               centered>
-              <Tab label="Statistics" component={Link} to="/statistics"/> 
+                <Tab label="Statistics" component={Link} to="/statistics"/> 
                 <Tab label="Histories" component={Link} to="/history" />
                 <Tab label="Invoices" component={Link} to="/billing"/>
                 {this.props.button}
           </Tabs>
         </AppBar>
-           {value === 0 && <Route path="/statistics" component={ () => <Statistics stats={stats} onlineAgents={onlineAgents} />}/>}
-           {value === 1 && <Route path="/history"  component={History}/>}
-           {value === 2 && <Route path="/billing" component={ () => <BillingList bills={bills}/>}/>}
+           <Route path="/statistics" component={ () => <Statistics stats={stats} onlineAgents={onlineAgents}/>}/>
+           <Route path="/history"  component={History}/>
+           <Route path="/billing" component={ () => <BillingList bills={bills}/>}/>
       </div>
     )
   }

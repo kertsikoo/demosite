@@ -12,6 +12,8 @@ import Paper from 'material-ui/Paper';
 import Typography from 'material-ui/Typography/Typography';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import styled from 'styled-components';
+import Button from 'material-ui/Button';
 
 const styles = theme => ({
     root: {
@@ -40,6 +42,15 @@ const styles = theme => ({
       },
 });
 
+
+const StyledButton = styled(Button)`
+  background: grey;
+  border-radius: 3px;
+  border: 0;
+  color: white;
+  height: 48px;
+  padding: 0 30px;
+`;
 
 class StatisticsList extends React.Component {
 
@@ -73,7 +84,7 @@ class StatisticsList extends React.Component {
                                 <AmountChart  stats={this.props.stats}/>
                             </div>
                             <div >
-                                <button onClick={this.printDocument}>PRINT PDF</button>
+                                <StyledButton onClick={this.printDocument}>PRINT PDF</StyledButton>
                             </div>
                             </Grid> 
                             <Grid item xs={6} className={classes.chatTimes}>    
@@ -101,13 +112,13 @@ class StatisticsList extends React.Component {
                     <Divider/>
                     <div className = {classes.charts}>
                         <Grid container spacing={24}>
-                            <Grid item xs={6} >    
-                                <Typography className={classes.typography} style={{textAlign: 'center'}}>PROBLEM</Typography>
-                                <ProblemChart/> 
-                            </Grid>
-                            <Grid item xs={6} >    
-                                <Typography className={classes.typography} style={{textAlign: 'center'}}>SOLUTION</Typography>
+                            <Grid item xs={4} >    
+                                <Typography className={classes.typography} style={{textAlign: 'center'}}>Level 1</Typography>
                                 <SolutionChart/> 
+                            </Grid>
+                            <Grid item xs={4} >    
+                                <Typography className={classes.typography} style={{textAlign: 'center'}}>Level 2</Typography>
+                                <ProblemChart/> 
                             </Grid>
                         </Grid>
                     </div>

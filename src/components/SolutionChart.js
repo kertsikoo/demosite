@@ -29,28 +29,32 @@ const data = {
 //};
 
 class SolutionChart extends React.Component{
+	constructor(props){
+		super(props);
+		this.state = {
+			isShown : false
+		}
+	}
 
-	showDataset(dataset, e) {
+	showDataset(dataset) {
 
 		const chartData = dataset[0]._chart.config.data;
 		const index = dataset[0]._index;
 		const label = chartData.labels[index];
 		const url = chartData.links[index];
 				
+	//	this.setState = ({isShown: !this.state.isShown})
 
 	alert(`The section you clicked is called: '${label}' with index '${index}'.
-	 You get the full object definition in console. The link is : '${url}',
-	 which will be opened in a new window.`)
+	Full object definition in console. The link is : '${url}'.`)
 	console.log(dataset)
-	window.open(url);
+	//window.open(url);
+	
 	}
 
   render() {
-
     return (
-      <div>
       <Doughnut data={data} ref="chart" getElementAtEvent={(dataset) => this.showDataset(dataset)} />
-      </div>
     );
   }
 }

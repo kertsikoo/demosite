@@ -7,8 +7,6 @@ const options={
   },
 };
 
-
-
 class AmountChart extends React.Component{
 
   render() {
